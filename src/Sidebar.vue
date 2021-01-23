@@ -12,7 +12,7 @@
 
   <div class="form-control">
     <label for="value">Значение</label>
-    <textarea id="value" rows="3"></textarea>
+    <textarea id="value" rows="3" v-model="value"></textarea>
   </div>
 
   <button class="btn primary">Добавить</button>
@@ -23,12 +23,14 @@
 export default {
   data () {
     return {
-      type: 'title'
+      type: 'title',
+      value: ''
     }
   },
   methods: {
     submitHandler () {
-      console.log('Type', this.type)
+      console.log('Type: ', this.type)
+      this.$emit('sendType', this.type, this.value)
     }
   }
 

@@ -1,13 +1,26 @@
 <template>
   <div class="container column">
-    <sidebar></sidebar>
-    <resume></resume>
+    <sidebar @sendType="addNode"></sidebar>
+    <resume ref="refResume"></resume>
   </div>
   <comments></comments>
 </template>
 
 <script>
 export default {
+  data () {
+    return {
+    }
+  },
+  methods: {
+    addNode (type, value) {
+      console.log('addNode: ', type, value)
+      this.$refs.refResume.createNodeResume(type, value)
+    },
+    computed () {
+
+    }
+  }
 
 }
 </script>
