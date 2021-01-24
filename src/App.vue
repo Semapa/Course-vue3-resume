@@ -14,7 +14,6 @@ export default {
   },
   methods: {
     addNode (type, value) {
-      console.log('addNode: ', type, value)
       this.$refs.refResume.createNodeResume(type, value)
     },
     computed () {

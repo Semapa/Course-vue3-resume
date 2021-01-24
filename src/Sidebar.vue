@@ -31,8 +31,9 @@ export default {
   },
   methods: {
     submitHandler () {
-      console.log('Type: ', this.type)
       this.$emit('sendType', this.type, this.value)
+      this.value = ''
+      this.type = 'title'
     }
   },
   computed: {
