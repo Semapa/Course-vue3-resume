@@ -15,7 +15,8 @@
     <textarea id="value" rows="3" v-model="value"></textarea>
   </div>
 
-  <button class="btn primary">Добавить</button>
+  <button class="btn primary"
+          :disabled="checkStatusBtn">Добавить</button>
   </form>
 </template>
 
@@ -24,13 +25,19 @@ export default {
   data () {
     return {
       type: 'title',
-      value: ''
+      value: '',
+      MIN_LENGTH: 4
     }
   },
   methods: {
     submitHandler () {
       console.log('Type: ', this.type)
       this.$emit('sendType', this.type, this.value)
+    }
+  },
+  computed: {
+    checkStatusBtn () {
+      return this.value.length < this.MIN_LENGTH
     }
   }
 
